@@ -4,5 +4,10 @@ This is an implementation of an app that lists military equipment, using Spring 
 
 -------------------------------
 
-run:
+read and do:
+1. /backend/README.md
+2. /frontend/README.md
+
+
+3. run:
 http://localhost:8081/
