@@ -1,4 +1,0 @@
-spring.datasource.url=jdbc:h2:file:/home/zbyszek/military-equipment/h2db/h2db
-spring.jpa.hibernate.ddl-auto=create
-# spring.datasource.data=classpath:/sql/security.sql,classpath:/sql/dictionary.sql,classpath:/sql/data.sql,classpath:/sql/configuration.sql,classpath:/sql/rules.sql,classpath:/sql/schedule.sql,classpath:/sql/person.sql,classpath:/sql/costs.sql,classpath:/sql/notification.sql,classpath:/sql/viewTemplate.sql, classpath:/sql/invoiceRequest.sql, classpath:/sql/absenceLimitImport.sql, classpath:/sql/oauth.sql, classpath:/sql/reset_password.sql, classpath:/sql/role_descriptions.sql, classpath:/sql/acl.sql, classpath:/sql/overtimeConfig.sql
-spring.datasource.data=classpath:/sql/acl.sql

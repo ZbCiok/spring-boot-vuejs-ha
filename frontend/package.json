@@ -1,6 +1,6 @@
 {
-  "name": "Military Equipment v0.3",
-  "version": "0.1",
+  "name": "military-equipment",
+  "version": "0.0.3",
   "author": "Zbigniew Ciok",
   "private": true,
   "scripts": {
