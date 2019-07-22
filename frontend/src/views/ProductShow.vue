@@ -82,6 +82,7 @@ export default {
         .then(response => {
           this.product = response.data[this.id];
           this.image = Consts.bomber_images_uri + this.product.image;
+          this.product.image = this.image;
         })
         .catch(error => {
           console.log("ProductShow: There was an error:", error.response);
@@ -91,6 +92,7 @@ export default {
         .then(response => {
           this.product = response.data[this.id];
           this.image = Consts.warship_images_uri + this.product.image;
+          this.product.image = this.image;
         })
         .catch(error => {
           console.log("ProductShow: There was an error:", error.response);

@@ -42,7 +42,7 @@
             </table>
           </td>
           <td>
-            <img v-bind:src="this.image" height="300" width="450" border="1" />
+            <img v-bind:src="product.image" height="300" width="450" border="1" />
           </td>
         </tr>
       </table>
@@ -89,7 +89,16 @@ export default {
       ProductService.getProducts(url)
         .then(response => {
           this.product = response.data[this.index];
-          this.image = image_uri + this.product.image;
+          if (this.$session.get("selected") == "0") {
+            this.image = Consts.tank_images_uri + this.product.image;
+            this.product.image = this.image;
+          } else if (this.$session.get("selected") == "1") {
+            this.image = Consts.bomber_images_uri + this.product.image;
+            this.product.image = this.image;            
+          } else if (this.$session.get("selected") == "2") {
+            this.image = Consts.warship_images_uri + this.product.image;
+            this.product.image = this.image;              
+          }           
         })
         .catch(error => {
           console.log("getCategory(): There was an error:", error.response);

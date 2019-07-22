@@ -6,7 +6,7 @@ const ProductCreate = () => import("./views/ProductCreate.vue");
 const ProductShow = () => import("./views/ProductShow.vue");
 const ProductEdit = () => import("./views/ProductEdit.vue");
 const ProductHardDelete = () => import("./views/ProductHardDelete.vue");
-const About = () => import("./views/About.vue");
+// const About = () => import("./views/About.vue");
 const Login = () => import("./views/Login.vue");
 
 Vue.use(Router);
@@ -42,11 +42,11 @@ export default new Router({
       component: ProductCreate,
       name: "product-create"
     },
-    {
-      path: "/about",
-      name: "about",
-      component: About
-    },
+    // {
+    //   path: "/about",
+    //   name: "about",
+    //   component: About
+    // },
     {
       path: "/login",
       name: "login",

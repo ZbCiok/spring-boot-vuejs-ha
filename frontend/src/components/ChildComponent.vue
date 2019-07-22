@@ -1,10 +1,5 @@
 <template>
   <div>
-
-      <p>Hello from the child!</p>
-
-
-
-
+    <p>Hello from the child!</p>
   </div>
 </template>

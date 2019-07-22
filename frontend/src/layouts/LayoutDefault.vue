@@ -5,7 +5,7 @@
       <router-link to="/product-list">Object List</router-link>&nbsp;&nbsp;
       <router-link to="/product-create">Object Create</router-link>&nbsp;&nbsp;
       <router-link to="/about">
-        <span class="red">About</span>
+      <!-- <span class="red">About</span> -->
       </router-link>&nbsp;&nbsp;
       <router-link to="/login">Login</router-link>&nbsp;&nbsp;
     </header>

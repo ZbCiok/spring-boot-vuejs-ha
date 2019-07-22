@@ -1,64 +1,70 @@
 <template>
-<layout name="LayoutDefault">
-  <div>
-    <br/><br/> 
-    <h2 class="show">Object Edit</h2>
-    <form @submit.prevent="formSubmit">
-      <table class="outer-show">
-        <tr>
-          <td>
-            <table class="show">
-              <tr>
-                <td>Id:</td>
-                <td>
-                  <input type="text" :disabled="true" class="input-field" v-model="product.id" />
-                </td>
-              </tr>
-              <tr>
-                <td>Name:</td>
-                <td>
-                  <input type="text" :disabled="false" class="input-field" v-model="product.name" />
-                </td>
-              </tr>
-              <tr>
-                <td>Description:</td>
-                <td>
-                  <textarea
-                    :disabled="false"
-                    class="input-field-text"
-                    v-model="product.description"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Country:</td>
-                <td>
-                  <input
-                    type="text"
-                    :disabled="false"
-                    class="input-field"
-                    v-model="product.country"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Image:</td>
-                <td>
-                  <input type="text" :disabled="false" class="input-field" v-model="product.image" />
-                </td>
-              </tr>
-            </table>
-          </td>
-          <td>
-            <img v-bind:src="this.image" height="300" width="450" border="1" />
-          </td>
-        </tr>
-      </table>
+  <layout name="LayoutDefault">
+    <div>
       <br />
-      <button>Save</button>
-    </form>
-  </div>
-</layout>
+      <br />
+      <h2 class="show">Object Edit</h2>
+      <form @submit.prevent="formSubmit">
+        <table class="outer-show">
+          <tr>
+            <td>
+              <table class="show">
+                <tr>
+                  <td>Id:</td>
+                  <td>
+                    <input type="text" :disabled="true" class="input-field" v-model="product.id" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name:</td>
+                  <td>
+                    <input type="text" :disabled="false" class="input-field" v-model="product.name" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Description:</td>
+                  <td>
+                    <textarea
+                      :disabled="false"
+                      class="input-field-text"
+                      v-model="product.description"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Country:</td>
+                  <td>
+                    <input
+                      type="text"
+                      :disabled="false"
+                      class="input-field"
+                      v-model="product.country"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Image:</td>
+                  <td>
+                    <input
+                      type="text"
+                      :disabled="false"
+                      class="input-field"
+                      v-model="product.image"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <img v-bind:src="product.image" height="300" width="450" border="1" />
+            </td>
+          </tr>
+        </table>
+        <br />
+        <button>Save</button>
+      </form>
+    </div>
+  </layout>
 </template>
 
 <script>
@@ -112,7 +118,16 @@ export default {
       ProductService.getProducts(url)
         .then(response => {
           this.product = response.data[this.index];
-          this.image = image_uri + this.product.image;
+          if (this.$session.get("selected") == "0") {
+            this.image = Consts.tank_images_uri + this.product.image;
+            this.product.image = this.image;
+          } else if (this.$session.get("selected") == "1") {
+            this.image = Consts.bomber_images_uri + this.product.image;
+            this.product.image = this.image;            
+          } else if (this.$session.get("selected") == "2") {
+            this.image = Consts.warship_images_uri + this.product.image;
+            this.product.image = this.image;              
+          } 
         })
         .catch(error => {
           console.log("getCategory(): There was an error:", error.response);

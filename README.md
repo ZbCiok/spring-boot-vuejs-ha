@@ -1,11 +1,11 @@
 Military Equipment (/spring-boot-vuejs)
 ------------------
 
-This is an implementation of an app that lists military equipment, using Spring Boot and Vue Js. The app is not yet complete, other functionalities will later be implemented.
+This is an implementation of an app that lists military equipment, using Spring Boot and VueJs. The app is not yet complete, other functionalities will later be implemented.
 
 -------------------------------
 
-read and do:
+Read and do:
 1. /backend/README.md
 2. /frontend/README.md
 

@@ -1,9 +1,5 @@
 import axios from "axios";
 
-// 'http://localhost:8080/api/v1/products'
-
-// 'http://localhost:3000'
-
 const apiClient = axios.create({
   baseURL: 'http://localhost:8080',
   withCredentials: false, 
