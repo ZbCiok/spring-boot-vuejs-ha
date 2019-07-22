@@ -3,18 +3,14 @@ package blog.zciok.springboot.restful.product;
 import java.util.concurrent.TimeUnit;
 
 import org.h2.server.web.WebServlet;
+
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
@@ -27,13 +23,13 @@ public class WebConfiguration implements WebMvcConfigurer {
     }
     
     // h2 console
+    // http://localhost:8080/console
     @Bean
     ServletRegistrationBean<WebServlet> h2servletRegistration(){
         ServletRegistrationBean<WebServlet> registrationBean = new ServletRegistrationBean<WebServlet>( new WebServlet());
         registrationBean.addUrlMappings("/console/*");
         return registrationBean;
     }   
-    
     
     // TODO:
     // Register resource handler for images

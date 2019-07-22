@@ -2,6 +2,7 @@ package blog.zciok.springboot.restful.product;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,54 +24,45 @@ public class ProductAPI implements Serializable {
 
     @GetMapping  
     public ResponseEntity<List<Product>> findAll() {
-    	log.info(">>> All ");
         return ResponseEntity.ok(productService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody Product product) {
-    	log.info(">>> save ");
+    public ResponseEntity<Product> create(@Valid @RequestBody Product product) {
         return ResponseEntity.ok(productService.save(product));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
-    	log.info(">>> findById" + id);
         Optional<Product> stock = productService.findById(id);
         if (!stock.isPresent()) {
-            log.error("Id " + id + " is not existed");
+            log.error("Id = " + id + " does not exist.");
             ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.ok(stock.get());
     }
     
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Product>> findByCategory(@PathVariable String category) {
-    	log.info(">>> findByCategory ");
         return ResponseEntity.ok(productService.findByCategory(category));
     }    
 
     @PutMapping("/category/{category}/{id}")
     public ResponseEntity<Product> update(@PathVariable Long id, @Valid @RequestBody Product product) {
-    	log.info(">>> update " + id);
         if (!productService.findById(id).isPresent()) {
-            log.error("Id " + id + " is not existed");
+            log.error("Id = " + id + " does not exist.");
             ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.ok(productService.save(product));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         if (!productService.findById(id).isPresent()) {
-            log.error("Id " + id + " is not existed");
+            log.error("Id = " + id + " does not exist.");
             ResponseEntity.badRequest().build();
         }
-
         productService.deleteById(id);
-
         return ResponseEntity.ok().build();
     }
 }

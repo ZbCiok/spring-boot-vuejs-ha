@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 @Data
 public class Product implements Serializable {
@@ -29,5 +28,4 @@ public class Product implements Serializable {
     private String country;    
     
     private String image;
-  
 }

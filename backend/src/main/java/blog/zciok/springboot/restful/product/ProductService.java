@@ -1,7 +1,6 @@
 package blog.zciok.springboot.restful.product;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ProductService implements Serializable {
@@ -37,5 +35,4 @@ public class ProductService implements Serializable {
 	public List<Product> findByCategory(String category) {
 		return productRespository.findByCategory(category);
 	}
-
 }
